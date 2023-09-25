@@ -1,5 +1,5 @@
 # DirectoryLister-WeUI-theme
-DirectoryLister theme with [WeUI](https://weui.io/)
+DirectoryLister theme with [WeUI](https://github.com/Tencent/weui/)
 
 ## 说明 / Description
 
