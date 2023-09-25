@@ -17,8 +17,8 @@ DirectoryLister theme with [WeUI](https://weui.io/)
 
 ## 截图 / Screenshot
 
-![PC-Light.png](https://github.com/ccizm/DirectoryLister-WeUI-theme/blob/1f87ba5841070b34fbba763b5d091004a55f8742/Screenshot/PC-Light.png)
-![PC-Dark.png](https://github.com/ccizm/DirectoryLister-WeUI-theme/blob/1f87ba5841070b34fbba763b5d091004a55f8742/Screenshot/PC-Dark.png)
+![PC-Light.png](Screenshot/M-Dark.png)
+![PC-Dark.png](Screenshot/PC-Dark.png)
 
-![M-Light.png](https://github.com/ccizm/DirectoryLister-WeUI-theme/blob/1f87ba5841070b34fbba763b5d091004a55f8742/Screenshot/M-Light.png)
-![M-Dark.png](https://github.com/ccizm/DirectoryLister-WeUI-theme/blob/1f87ba5841070b34fbba763b5d091004a55f8742/Screenshot/M-Dark.png)
+![M-Light.png](Screenshot/M-Light.png)
+![M-Dark.png](Screenshot/M-Dark.png)
