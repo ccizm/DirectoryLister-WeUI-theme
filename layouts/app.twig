@@ -10,37 +10,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 		<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAN1wAADdcBQiibeAAAAI1QTFRFAAAA/0wAAP///0sAnomSgqfMi5u202E5////qsTco7/Z6O70h67Stsvf9vj6mI+cpoGBvHBc5u3zydjm0GM9210u9ff54unw2ePthq7T4Ojww2xS5lcf8PT46vD1n7zY2uTtqsPb4enwq8Tc8/b54+vylrfWzWZD09/ry9nnjpmx3+jw4lkkiZ68or7ZLOpesQAAAC90Uk5TAP8Bxf/////////////////////////////////////////////////////////1FFmPAAABVUlEQVR4nOWWa1fCMAyG6WCzIg6VgajcvIu3///zwMGhNGmbpDmHL74fR56HtB0lnU4kBiRWx6NljjDNdqRwhqKgeGO6mq+nmuDxUUOXy0eWwcfDTch4bGBsvx+4CikPW5DzviGHPzaIN2CXItBAr6xg2Vn5l2QL7kllrT33i/q2zUXK4B4MtqWXfk1t94bhVZtrLDBJgYW5QQahwFZawQAIDBCMGpcxJTABwXEmpxAYncBgQX3rMs0RiE4hS3AnE9wjwYNMMJvOvSyW/uekgMp/EMxW7d49Zgue9of3nCs4HP/L7hhf33IFh7xrBcJXmfwxoQtl/uGyPvmV9pkj8AxfQgH+b/9uGsm1zhgOGIK0oUaCH8inBb+QX6AGCMO49NIL8PoRRz1k6cc8/aCpH3XVw7Z+3BetogjxgiYiONsQ51nLiLXPbYLAKQUDTzi4dNgRq9sAqQQrzbfzq3oAAAAASUVORK5CYII=">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/weui/2.6.5/style/weui.min.css" type="text/css" rel="stylesheet"/>
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+
+		<!--China CDN
+				<link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/weui/2.5.4/style/weui.min.css" type="text/css" rel="stylesheet"/>
+				<link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+				<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/5.1.0/github-markdown.min.css" type="text/css" rel="stylesheet"/>
+				<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" type="text/css" rel="stylesheet"/>
+				-->
+
+		<!--Global-->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/weui/2.6.5/style/weui.min.css" type="text/css" rel="stylesheet"/> <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css" type="text/css" rel="stylesheet"/>
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" type="text/css" rel="stylesheet"/>
 
 		<style>
+
+			/*WeUI Page*/
 			.page,
 			body {
 				max-width: 768px;
 				margin: auto;
 				background-color: var(--weui-BG-0);
-			}
-
-			.weui-half-screen-dialog {
-				margin: auto;
-				max-width: 768px;
-			}
-
-			.weui-half-screen-dialog,
-			.weui-half-screen-dialog__hd {
-				width: 100 %；
-			}
-
-			.weui-half-screen-dialog__hd__side+.weui-half-screen-dialog__hd__main {
-				width: calc(100% - 80px)
-			}
-
-			.weui-half-screen-dialog__title {
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
 			}
 
 			.page__hd {
@@ -61,82 +51,47 @@
 				font-size: 14px;
 			}
 
-			.weui-cell__ft-display::after {
-				color: transparent !important;
+			/*WeUI Searchbar*/
+			.weui-search-bar .weui-search-bar__box {
+				width: 0
 			}
 
-			.weui-link,
-			.markdown-body a,
-			.weui-link-text {
-				color: #576b95;
-				color: var(--weui-LINK);
+			.weui-search-bar.weui-search-bar_focusing .weui-search-bar__box {
+				width: auto
+			}
+
+			.weui-search-bar .weui-search-bar__label {
+				z-index: 0
 			}
 
 
-			.weui-footer {
-				padding: 30px 0 20px;
+			/*WeUI Dialog*/
+			.weui-half-screen-dialog {
+				margin: auto;
+				max-width: 768px;
+				height: auto;
+				max-height: 90%;
+				-webkit-transition: -webkit-transform 0.3s;
+				transition: -webkit-transform 0.3s;
+				transition: transform 0.3s;
+				transition: transform 0.3s, -webkit-transform 0.3s;
+				-webkit-transform: translateY(100%);
+				transform: translateY(100%)
 			}
 
-			.weui-list__file .weui-cell {
-				padding: 8px 16px;
-				font-size: 14px;
+			.weui-half-screen-dialog,
+			.weui-half-screen-dialog__hd {
+				width: 100 %；
 			}
 
-			.file-link {
-				padding: 8px 16px;
-				font-size: 14px;
+			.weui-half-screen-dialog__hd__side+.weui-half-screen-dialog__hd__main {
+				width: calc(100% - 80px)
 			}
 
-			.weui-link-text {
+			.weui-half-screen-dialog__title {
 				overflow: hidden;
 				white-space: nowrap;
 				text-overflow: ellipsis;
-			}
-
-			.markdown-body, .markdown-body img {
-				background-color: var(--weui-BG-2);
-			}
-
-			.weui-panel {
-				border-radius: 4px;
-			}
-
-			.weui-footer__link img {
-				margin-right: 2px;
-				width: 16px;
-				height: 16px;
-			}
-
-			.placeholder {
-				width: 24px;
-			}
-
-			.weui-panel__hd:has(.placeholder) {
-				display: flex;
-			}
-
-			.row:has(~ .placeholder) {
-				flex: 1 0;
-			}
-
-			.weui-progress__inner-bar {
-				transition: width 0.3s;
-			}
-
-			.weui-half-screen-dialog {
-				height: auto;
-				max-height: 90%;
-			}
-			.weui-half-screen-dialog__desc {
-				font-weight: initial;
-			}
-			.weui-half-screen-dialog__desc table {
-				border-spacing: 0;
-				border-collapse: collapse;
-				width: 100%;
-				overflow: auto;
-				margin-top: 0;
-				margin-bottom: 16px;
 			}
 
 			.weui-half-screen-dialog__desc td,
@@ -156,42 +111,23 @@
 				border-top: 1px solid var(--weui-FG-3);
 			}
 
-			.table-responsive {
-				overflow-x: auto;
-				-webkit-overflow-scrolling: touch;
+			.weui-half-screen-dialog__desc {
+				font-weight: initial;
 			}
 
-
-			.weui-half-screen-dialog {
-				-webkit-transition: -webkit-transform 0.3s;
-				transition: -webkit-transform 0.3s;
-				transition: transform 0.3s;
-				transition: transform 0.3s, -webkit-transform 0.3s;
-				-webkit-transform: translateY(100%);
-				transform: translateY(100%)
+			.weui-half-screen-dialog__desc table {
+				border-spacing: 0;
+				border-collapse: collapse;
+				width: 100%;
+				overflow: auto;
+				margin-top: 0;
+				margin-bottom: 16px;
 			}
+
 			.weui-half-screen-dialog_show {
 				-webkit-transform: translateY(0);
 				transform: translateY(0)
 			}
-
-			table .weui-loadmore {
-				margin: 0;
-			}
-
-
-			.weui-search-bar .weui-search-bar__box {
-				width: 0
-			}
-
-			.weui-search-bar.weui-search-bar_focusing .weui-search-bar__box {
-				width: auto
-			}
-
-			.weui-search-bar .weui-search-bar__label {
-				z-index: 0
-			}
-
 
 			#dialog_media {
 				width: 100%;
@@ -214,7 +150,86 @@
 				max-height: 300px;
 			}
 
-			@media only screen and(max-width: 600px) {
+			/*WeUI List*/
+			.weui-list__file .weui-cell {
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			.weui-list__file .weui-cell {
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			.weui-cell__ft-display::after {
+				color: transparent !important;
+			}
+
+			.weui-link-text {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.file-link {
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			.weui-link,
+			.markdown-body a,
+			.weui-link-text {
+				color: #576b95;
+				color: var(--weui-LINK);
+			}
+
+			.markdown-body,
+			.markdown-body img {
+				background-color: var(--weui-BG-2);
+			}
+
+			.weui-panel {
+				border-radius: 4px;
+			}
+
+			.weui-footer {
+				padding: 30px 0 20px;
+			}
+
+			.weui-footer__link img {
+				margin-right: 2px;
+				width: 16px;
+				height: 16px;
+			}
+
+			.placeholder {
+				width: 24px;
+			}
+
+			.weui-panel__hd:has(.placeholder) {
+				display: flex;
+			}
+
+			.row:has(~ .placeholder) {
+				flex: 1 0;
+			}
+
+			/*WeUI Progress*/
+			.weui-progress__inner-bar {
+				transition: width 0.3s;
+			}
+
+			/*Table*/
+			.table-responsive {
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			table .weui-loadmore {
+				margin: 0;
+			}
+
+			@media only screen and(max-width: 768px) {
 				.weui-panel {
 					border-radius: 0;
 				}
