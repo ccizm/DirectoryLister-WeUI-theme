@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<title>{{ title }}
+			&bull;
+			{{ config('site_title') }}</title>
+
+		<meta charset="utf-8">
+		<meta name="description" content="{{ config('meta_description') }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAN1wAADdcBQiibeAAAAI1QTFRFAAAA/0wAAP///0sAnomSgqfMi5u202E5////qsTco7/Z6O70h67Stsvf9vj6mI+cpoGBvHBc5u3zydjm0GM9210u9ff54unw2ePthq7T4Ojww2xS5lcf8PT46vD1n7zY2uTtqsPb4enwq8Tc8/b54+vylrfWzWZD09/ry9nnjpmx3+jw4lkkiZ68or7ZLOpesQAAAC90Uk5TAP8Bxf/////////////////////////////////////////////////////////1FFmPAAABVUlEQVR4nOWWa1fCMAyG6WCzIg6VgajcvIu3///zwMGhNGmbpDmHL74fR56HtB0lnU4kBiRWx6NljjDNdqRwhqKgeGO6mq+nmuDxUUOXy0eWwcfDTch4bGBsvx+4CikPW5DzviGHPzaIN2CXItBAr6xg2Vn5l2QL7kllrT33i/q2zUXK4B4MtqWXfk1t94bhVZtrLDBJgYW5QQahwFZawQAIDBCMGpcxJTABwXEmpxAYncBgQX3rMs0RiE4hS3AnE9wjwYNMMJvOvSyW/uekgMp/EMxW7d49Zgue9of3nCs4HP/L7hhf33IFh7xrBcJXmfwxoQtl/uGyPvmV9pkj8AxfQgH+b/9uGsm1zhgOGIK0oUaCH8inBb+QX6AGCMO49NIL8PoRRz1k6cc8/aCpH3XVw7Z+3BetogjxgiYiONsQ51nLiLXPbYLAKQUDTzi4dNgRq9sAqQQrzbfzq3oAAAAASUVORK5CYII=">
+		<link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/weui/2.5.4/style/weui.min.css" type="text/css" rel="stylesheet"/>
+		<link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap-grid.min.css" type="text/css" rel="stylesheet"/>
+		<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/5.1.0/github-markdown.min.css" type="text/css" rel="stylesheet"/>
+		<link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" type="text/css" rel="stylesheet"/>
+
+		<style>
+			.page,
+			body {
+				max-width: 768px;
+				margin: auto;
+				background-color: var(--weui-BG-0);
+			}
+
+			.weui-half-screen-dialog {
+				margin: auto;
+				max-width: 768px;
+			}
+
+			.weui-half-screen-dialog,
+			.weui-half-screen-dialog__hd {
+				width: 100 %；
+			}
+
+			.weui-half-screen-dialog__hd__side+.weui-half-screen-dialog__hd__main {
+				width: calc(100% - 80px)
+			}
+
+			.weui-half-screen-dialog__title {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.page__hd {
+				padding: 40px 16px;
+			}
+
+			.page__title {
+				text-align: left;
+				font-size: 20px;
+				font-weight: 400;
+				color: var(--weui-FG-0);
+			}
+
+			.page__desc {
+				margin-top: 4px;
+				color: var(--weui-FG-1);
+				text-align: left;
+				font-size: 14px;
+			}
+
+			.weui-cell__ft-display::after {
+				color: transparent !important;
+			}
+
+			.weui-link,
+			.markdown-body a,
+			.weui-link-text {
+				color: #576b95;
+				color: var(--weui-LINK);
+			}
+
+			.weui-footer {
+				padding: 30px 0 20px;
+			}
+
+			.weui-list__file .weui-cell {
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			.file-link {
+				padding: 8px 16px;
+				font-size: 14px;
+			}
+
+			.weui-link-text {
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.markdown-body {
+				background-color: var(--weui-BG-2);
+			}
+
+			.weui-panel {
+				border-radius: 4px;
+			}
+
+			.weui-footer__link img {
+				margin-right: 2px;
+				width: 16px;
+				height: 16px;
+			}
+
+			.placeholder {
+				width: 24px;
+			}
+
+			.weui-panel__hd:has(.placeholder) {
+				display: flex;
+			}
+
+			.row:has(~ .placeholder) {
+				flex: 1 0;
+			}
+
+			.weui-progress__inner-bar {
+				transition: width 0.3s;
+			}
+
+			.weui-half-screen-dialog {
+				height: auto;
+				max-height: 90%;
+			}
+			.weui-half-screen-dialog__desc {
+				font-weight: initial;
+			}
+			.weui-half-screen-dialog__desc table {
+				border-spacing: 0;
+				border-collapse: collapse;
+				width: 100%;
+				overflow: auto;
+				margin-top: 0;
+				margin-bottom: 16px;
+			}
+
+			.weui-half-screen-dialog__desc td,
+			.weui-half-screen-dialog__desc th {
+				padding: 0;
+			}
+
+			.weui-half-screen-dialog__desc table th,
+			.weui-half-screen-dialog__desc table td {
+				padding: 6px 13px;
+				border: 1px solid var(--weui-FG-3);
+				font-size: 14px
+			}
+
+			.weui-half-screen-dialog__desc table tr {
+				background-color: var(--color-canvas-default);
+				border-top: 1px solid var(--weui-FG-3);
+			}
+
+			.table-responsive {
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+
+			.weui-half-screen-dialog {
+				-webkit-transition: -webkit-transform 0.3s;
+				transition: -webkit-transform 0.3s;
+				transition: transform 0.3s;
+				transition: transform 0.3s, -webkit-transform 0.3s;
+				-webkit-transform: translateY(100%);
+				transform: translateY(100%)
+			}
+			.weui-half-screen-dialog_show {
+				-webkit-transform: translateY(0);
+				transform: translateY(0)
+			}
+
+			table .weui-loadmore {
+				margin: 0;
+			}
+
+
+			.weui-search-bar .weui-search-bar__box {
+				width: 0
+			}
+
+			.weui-search-bar.weui-search-bar_focusing .weui-search-bar__box {
+				width: auto
+			}
+
+			.weui-search-bar .weui-search-bar__label {
+				z-index: 0
+			}
+
+
+			#dialog_media {
+				width: 100%;
+				max-height: 300px;
+				margin-bottom: 16px;
+				text-align: center
+			}
+
+			#dialog_media video {
+				width: 100%;
+				max-height: 300px;
+			}
+
+			#dialog_media audio {
+				width: 100%;
+			}
+
+			#dialog_media img {
+				max-width: 100%;
+				max-height: 300px;
+			}
+
+			@media only screen and(max-width: 600px) {
+				.weui-panel {
+					border-radius: 0;
+				}
+			}
+		</style>
+
+		{% if config('google_analytics_id', false) %}
+			{% include 'components/analytics/google.twig' %}
+		{% endif %}
+
+		{% if config('matomo_analytics_url', false) and config('matomo_analytics_site_id', false) %}
+			{% include 'components/analytics/matomo.twig' %}
+		{% endif %}
+	</head>
+	<body>
+		{% block content %}{% endblock %}
+	</body>
+
+</html>

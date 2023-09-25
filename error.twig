@@ -1,0 +1,23 @@
+{% extends 'layouts/app.twig' %}
+{% set title = message %}
+
+{% block content %}
+	<div class="weui-msg" style="height: 100vh">
+		<div class="weui-msg__icon-area">
+			<i class="weui-icon-warn weui-icon_msg"></i>
+		</div>
+		<div class="weui-msg__text-area">
+			<h2 class="weui-msg__title">{{ message | default('An unexpected error occured') }}</h2>
+			<p class="weui-msg__desc">{{ subtext }}</p>
+		</div>
+		<div class="weui-msg__opr-area">
+			<p class="weui-btn-area">
+				<a href="." role="button" class="weui-btn weui-btn_default">Back to home</a>
+			</p>
+		</div>
+		<div class="weui-msg__extra-area">
+			{% include 'components/footer.twig' %}
+		</div>
+	</div>
+
+{% endblock %}

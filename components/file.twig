@@ -1,0 +1,33 @@
+
+
+
+
+<a {% if parentDir or file.isDir %} href="{{ parentDir ? parent_url(path) : file_url(file.getPathname) }}" {% else %} href="javascript:;" x-href="{{ parentDir ? parent_url(path) : file_url(file.getPathname) }}" {% endif %} class="weui-cell weui-cell_active weui-cell_access file-link" title="{{ parentDir ? '..' : file.getRelativePathname }}">
+	<div class="weui-cell__bd weui-cell_primary">
+		<div class="row">
+			<div class="col-9 col-md-6 weui-link-text">
+				{% if parentDir %}
+					<i class="fas fa-level-up-alt fa-fw fa-lg"></i>
+				{% else %}
+					{{ icon(file) | raw }}
+				{% endif %}
+				{{ parentDir ? '..' : file.getRelativePathname }}
+			</div>
+			<div class="col-3 col-md-3 weui-link">
+				{% if parentDir or file.isDir %}
+					{{ parentDir ? '' : '-' }}
+				{% else %}
+					{{ size_for_humans(file) }}
+				{% endif %}
+			</div>
+			<div class="col-3 d-none d-md-block weui-link">
+				{{ parentDir ? '' : modified_time(file) }}
+			</div>
+		</div>
+	</div>
+	{% if parentDir or file.isDir %}
+		<div class="weui-cell__ft"></div>
+	{% else %}
+		<div class="placeholder"></div>
+	{% endif %}
+</a>

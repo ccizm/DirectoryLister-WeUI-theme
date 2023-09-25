@@ -1,0 +1,194 @@
+
+
+<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" type="application/javascript"></script>
+<script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/js/all.min.js" type="application/javascript"></script>
+
+
+<script type="text/javascript">
+    $(function() {
+        //dialog
+        const $dialog = $('#js_dialog');
+        const $dialogWrap = $('#dialogWrap');
+
+        function closeDialog(o) {
+            const $jsDialogWrap = o.parents('.js_dialog_wrap');
+            $jsDialogWrap.attr('aria-hidden', 'true')
+                .attr('aria-modal', 'false')
+                .removeAttr('tabindex');
+            $jsDialogWrap.fadeOut(300);
+            $jsDialogWrap.find('.js_dialog')
+                .removeClass('weui-half-screen-dialog_show');
+            setTimeout(function() {
+                $('#' + $jsDialogWrap.attr('ref'))
+                    .trigger('focus');
+            }, 300);
+        }
+
+        // 阻止弹窗内部滚动冒泡
+        $('.js_dialog_wrap')
+            .on('touchmove', function(e) {
+                if ($.contains(document.getElementById('js_wrap_content'), e.target)) {} else {
+                    e.preventDefault();
+                }
+            });
+
+        $('.js_close')
+            .on('click', function() {
+                closeDialog($(this));
+                dialog_hashes = '<span aria-hidden="true" role="img" aria-label="正在加载" class="weui-primary-loading" style="color: var(--weui-BRAND);"><i class="weui-primary-loading__dot"></i></span>';
+                $('#js_dialog_type')
+                    .html(dialog_hashes);
+                $('#js_dialog_md5')
+                    .html(dialog_hashes);
+                $('#js_dialog_sha1')
+                    .html(dialog_hashes);
+                $('#js_dialog_sha256')
+                    .html(dialog_hashes);
+                $('#dialog_media')
+                    .html('');
+            });
+
+        name.substring(name.lastIndexOf("."))
+
+        $('.file-link[x-href]')
+            .click(function() {
+
+                fetch('./?info=' + $(this)
+                        .attr('x-href'))
+                    .then((response) => response.json())
+                    .then((data) => {
+                        $('#js_dialog_md5')
+                            .text(data.hashes.md5);
+                        $('#js_dialog_sha1')
+                            .text(data.hashes.sha1);
+                        $('#js_dialog_sha256')
+                            .text(data.hashes.sha256);
+                    })
+                    .catch(function(err) {
+                        error_text = '<span title="File too large.Please select a file smaller than 1GB.">None</span>'
+                        $('#js_dialog_md5')
+                            .html(error_text);
+                        $('#js_dialog_sha1')
+                            .html(error_text);
+                        $('#js_dialog_sha256')
+                            .html(error_text);
+                    });;
+
+                $('#js_dialog_title')
+                    .text($(this)
+                        .attr('title'))
+                dialog_type = $(this)
+                    .attr('title')
+                    .substring($(this)
+                        .attr('title')
+                        .lastIndexOf(".") + 1)
+                    .toLowerCase();
+
+                Whatfile(dialog_type, $(this)
+                    .attr('x-href'), $(this)
+                    .attr('title'))
+
+                $('#js_dialog_type')
+                    .text(dialog_type);
+                $('#js_wrap_copy')
+                    .attr('x-href', $(this)
+                        .attr('x-href'))
+                $('#js_wrap_download')
+                    .attr('href', $(this)
+                        .attr('x-href'))
+
+
+
+
+                $dialogWrap.fadeIn(200);
+                $dialog.addClass('weui-half-screen-dialog_show');
+                setTimeout(function() {
+                    $dialogWrap.attr('aria-hidden', 'false');
+                    $dialogWrap.attr('aria-modal', 'true');
+                    $dialogWrap.attr('tabindex', '0');
+                    $dialogWrap.trigger('focus');
+                }, 200)
+
+            });
+
+        $('#showDialog')
+            .on('click', function() {
+                $dialogWrap.fadeIn(200);
+                $dialog.addClass('weui-half-screen-dialog_show');
+                setTimeout(function() {
+                    $dialogWrap.attr('aria-hidden', 'false');
+                    $dialogWrap.attr('aria-modal', 'true');
+                    $dialogWrap.attr('tabindex', '0');
+                    $dialogWrap.trigger('focus');
+                }, 200)
+            });
+
+        function Whatfile(e, b, t) {
+            if (e == 'mp4' | e == 'webm') {
+                $('#dialog_media')
+                    .html('<video src="' + b + '" height="300px" title="' + t + '" controls poster ><p>Your browser does not support this video format.</p></video>')
+            } else if (e == 'mp3') {
+                $('#dialog_media')
+                    .html('<audio controls height="100" width="100"><source src="' + b + '" type="audio/mpeg"><embed height="50" width="100" src="' + b + '">Your browser does not support this audio format.</audio>')
+            } else if (e == 'jpg' | e == 'png' | e == 'gif' | e == 'svg' | e == 'bmp' | e == 'ico' | e == 'webp') {
+                $('#dialog_media')
+                    .html('<img src="' + b + '" alt="' + t + '" title="' + t + '">')
+            } else {
+
+            }
+        }
+
+        //searchBar
+        var $searchBar = $('#searchBar'),
+            $searchResult = $('#searchResult'),
+            $searchText = $('#searchText'),
+            $searchInput = $('#searchInput'),
+            $searchClear = $('#searchClear'),
+            $searchForm = $('#searchForm'),
+            $searchCancel = $('#searchCancel');
+
+        function hideSearchResult() {
+            $searchResult.hide();
+            $searchForm.attr('aria-expanded', 'false');
+            $searchInput.val('');
+        };
+
+        function cancelSearch() {
+            hideSearchResult();
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.show();
+        };
+
+        $searchText.on('click', function() {
+            $searchBar.addClass('weui-search-bar_focusing');
+            $searchInput.focus();
+        });
+
+        $searchInput.on('blur', function() {
+                if (!this.value.length)
+                    cancelSearch();
+            })
+            .on('input', function() {
+                if (this.value.length) {
+                    $searchResult.show();
+                    $searchForm.attr('aria-expanded', 'true');
+                } else {
+                    $searchResult.hide();
+                    $searchForm.attr('aria-expanded', 'false');
+                }
+            });
+
+        $searchClear.on('click', function() {
+            hideSearchResult();
+            $searchInput.focus();
+        });
+
+        $searchCancel.on('click', function() {
+            cancelSearch();
+            $searchInput.blur();
+        });
+
+    });
+
+</script>
+

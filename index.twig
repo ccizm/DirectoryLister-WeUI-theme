@@ -1,0 +1,60 @@
+{% extends "layouts/app.twig" %}
+
+{% block content %}
+	<div class="page">
+		{% include "components/header.twig" %}
+		<div class="page__bd">
+			{% include 'components/search.twig' %}
+			<div class="weui-cells__title">
+				<div class="row">
+					<div class="col-12 col-md-11">
+						{% include 'components/breadcrumbs.twig' %}
+					</div>
+					<div class="col-1 d-none d-md-block">
+						{% if path and files is not empty and config('zip_downloads') %}
+							<a href="{{ zip_url(path) }}" title="{{ translate('download') }} zip" rel="nofollow" class="weui-link">
+								<i class="fas fa-download fa-lg"></i>
+							</a>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<div class="weui-panel">
+				<div class="weui-panel__hd">
+					<div class="row">
+						<div class="col-9 col-md-6">
+							{{ translate('file.name') }}
+						</div>
+						<div class="col-3 col-md-3">
+							{{ translate('file.size') }}
+						</div>
+						<div class="col-3 d-none d-md-block">
+							{{ translate('file.date') }}
+						</div>
+					</div>
+					<div class="placeholder"></div>
+				</div>
+				<div class="weui-panel__bd">
+					{{ include('components/plugins/disk.twig') }}
+					<div class="weui-media-box weui-media-box_small-appmsg">
+						<div class="weui-cells">
+							{% if path and path != '.' %}
+								{{ include('components/file.twig', { parentDir: true }) }}
+							{% endif %}
+
+							{% for file in files %}
+								{{ include('components/file.twig') }}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if readme %}
+				{% include 'components/readme.twig' %}
+			{% endif %}
+			{% include 'components/footer.twig' %}
+		</div>
+	</div>
+	{% include 'components/dialog.twig' %}
+	{% include 'components/script.twig' %}
+{% endblock %}
