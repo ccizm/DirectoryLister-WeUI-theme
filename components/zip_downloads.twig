@@ -1,0 +1,6 @@
+
+{% if path and files is not empty and config('zip_downloads') %}
+	<a href="{{ zip_url(path) }}" title="{{ translate('download') }} zip" rel="nofollow" class="weui-link">
+		<i class="fas fa-download fa-lg"></i>
+	</a>
+{% endif %}

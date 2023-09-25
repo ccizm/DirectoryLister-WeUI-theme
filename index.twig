@@ -1,3 +1,4 @@
+
 {% extends "layouts/app.twig" %}
 
 {% block content %}
@@ -11,11 +12,7 @@
 						{% include 'components/breadcrumbs.twig' %}
 					</div>
 					<div class="col-1 d-none d-md-block">
-						{% if path and files is not empty and config('zip_downloads') %}
-							<a href="{{ zip_url(path) }}" title="{{ translate('download') }} zip" rel="nofollow" class="weui-link">
-								<i class="fas fa-download fa-lg"></i>
-							</a>
-						{% endif %}
+						{% include 'components/zip_downloads.twig' %}
 					</div>
 				</div>
 			</div>
