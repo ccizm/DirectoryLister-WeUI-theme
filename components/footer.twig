@@ -1,8 +1,8 @@
+
 <div class="weui-footer">
+	{% include 'components/plugins/beian.twig' %}
 	<p class="weui-footer__text">{{ translate('powered_by') }}
 		<a href="//www.directorylister.com/" target="_blank">Directory Lister</a>. Theme with
 		<a href="//weui.io/" target="_blank">WeUI</a>.</p>
-	<p class="weui-footer__text">Copyright &copy;
-		{{ "now"|date("Y") }}
-		<a href="//yanzhiming.com/" target="_blank">YANZHIMING</a>.</p>
+	<p class="weui-footer__text">Copyright &copy; {{ "now"|date("Y") }} {{ config('site_title') }}.</p>
 </div>

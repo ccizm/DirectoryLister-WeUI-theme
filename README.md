@@ -17,7 +17,7 @@ DirectoryLister theme with [WeUI](https://weui.io/)
 
 ## 截图 / Screenshot
 
-![PC-Light.png](Screenshot/M-Dark.png)
+![PC-Light.png](Screenshot/PC-Light.png)
 ![PC-Dark.png](Screenshot/PC-Dark.png)
 
 ![M-Light.png](Screenshot/M-Light.png)

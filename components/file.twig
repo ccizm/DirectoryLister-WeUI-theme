@@ -1,7 +1,4 @@
 
-
-
-
 <a {% if parentDir or file.isDir %} href="{{ parentDir ? parent_url(path) : file_url(file.getPathname) }}" {% else %} href="javascript:;" x-href="{{ parentDir ? parent_url(path) : file_url(file.getPathname) }}" {% endif %} class="weui-cell weui-cell_active weui-cell_access file-link" title="{{ parentDir ? '..' : file.getRelativePathname }}">
 	<div class="weui-cell__bd weui-cell_primary">
 		<div class="row">

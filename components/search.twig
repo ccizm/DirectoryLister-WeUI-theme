@@ -1,8 +1,11 @@
+
+
+
 <div class="weui-search-bar" id="searchBar">
 	<form action="." method="get" id="searchForm" role="combobox" aria-haspopup="true" aria-expanded="false" aria-owns="searchResult" class="weui-search-bar__form">
 		<div class="weui-search-bar__box">
 			<i class="weui-icon-search"></i>
-			<input type="search" value="{{ search }}" name="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="{{ translate('search') }}..." required="">
+			<input type="search" name="search" aria-controls="searchResult" class="weui-search-bar__input" id="searchInput" placeholder="{{ translate('search') }}..." required="">
 			<a href="javascript:" role="button" title="清除" class="weui-icon-clear" id="searchClear" wah-hotarea="click"></a>
 		</div>
 		<label for="searchInput" class="weui-search-bar__label" id="searchText" wah-hotarea="click" style="transform-origin: 0px 0px; opacity: 1; transform: scale(1, 1);">
