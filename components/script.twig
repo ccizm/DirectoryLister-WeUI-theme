@@ -144,6 +144,17 @@
             } else if (e == 'jpg' | e == 'png' | e == 'gif' | e == 'svg' | e == 'bmp' | e == 'ico' | e == 'webp') {
                 $('#dialog_media')
                     .html('<img src="' + b + '" alt="' + t + '" title="' + t + '">')
+            } else if (e == 'txt' | e == 'license') {
+                $.get(b,function(data) {    
+                    var lines = data.split("\n"); //按行读取
+                    var txt = '';
+                    $.each(lines,function(i, v) {
+                        txt += v + '\n';
+                        return txt;
+                    });
+                    $('#dialog_media')
+                        .html('<pre>' + txt + '</pre>')
+                });
             } else if (e == 'epub') {
                 var book = ePub(b);
                 var rendition = book.renderTo('dialog_media', {width: '100%', height: 300});
