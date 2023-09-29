@@ -1,9 +1,11 @@
 # DirectoryLister-WeUI-theme
-DirectoryLister theme with [WeUI](https://github.com/Tencent/weui/)
+[DirectoryLister](https://github.com/DirectoryLister/DirectoryLister) theme with [WeUI](https://github.com/Tencent/weui/)
 
 ## 说明 / Description
 
 ### 安装 / Install
+
+安装 [DirectoryLister](https://github.com/DirectoryLister/DirectoryLister)
 
 替换 `app/views/` 下的内容
 
