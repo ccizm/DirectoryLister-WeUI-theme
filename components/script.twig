@@ -109,9 +109,6 @@
                     .attr('href', $(this)
                         .attr('x-href'))
 
-
-
-
                 $dialogWrap.fadeIn(200);
                 $dialog.addClass('weui-half-screen-dialog_show');
                 setTimeout(function() {
@@ -161,8 +158,8 @@
             } else if (e == 'epub') {
                 var book = ePub(b);
                 var rendition = book.renderTo('dialog_media', {width: '100%', height: 300});
-              	$('#dialog_media').append('<a id="prev" href="#prev" class="arrow"><i class="fa-solid fa-chevron-left"></i></a><a id="next" href="#next" class="arrow"><i class="fa-solid fa-chevron-right"></i></a>');
                 var displayed = rendition.display();
+                $('#dialog_media').append('<a id="prev" href="#prev" class="arrow"><i class="fa-solid fa-chevron-left"></i></a><a id="next" href="#next" class="arrow"><i class="fa-solid fa-chevron-right"></i></a>');
                 book.ready.then(() => {
                   var next = document.getElementById("next");
                   next.addEventListener("click", function(e){
